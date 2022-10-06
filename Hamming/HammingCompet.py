@@ -53,16 +53,19 @@ plt.grid(b = True, which = 'major')
 
 for epocas in range(15):
     for i in range (Patrones.shape[0]):
-        a1 = Pesos1.dot(Patrones[i,:].T) + Bias.T
-        a21 = a1.T
-        a22 = poslin(Pesos2.dot(a21))
-        a23 = poslin(Pesos2.dot(a22))
-        a24 = poslin(Pesos2.dot(a23))
-        a25 = poslin(Pesos2.dot(a24))
-        a26 = poslin(Pesos2.dot(a25))
-        Pesos1[0,:] = Pesos1[0,:] + alpha*(a26[0])*(Patrones[i,:]-Pesos1[0,:])
-        Pesos1[1,:] = Pesos1[1,:] + alpha*(a26[1])*(Patrones[i,:]-Pesos1[1,:])
-        Pesos1[2,:] = Pesos1[2,:] + alpha*(a26[2])*(Patrones[i,:]-Pesos1[2,:])
+        a1 = Pesos1.dot(Patrones[i,:].T) # + Bias.T
+
+        a26 = compet(a1)
+        print(a26)
+        # a21 = a1.T
+        # a22 = poslin(Pesos2.dot(a21))
+        # a23 = poslin(Pesos2.dot(a22))
+        # a24 = poslin(Pesos2.dot(a23))
+        # a25 = poslin(Pesos2.dot(a24))
+        # a26 = poslin(Pesos2.dot(a25))
+        # Pesos1[0,:] = Pesos1[0,:] + alpha*(a26[0])*(Patrones[i,:]-Pesos1[0,:])
+        # Pesos1[1,:] = Pesos1[1,:] + alpha*(a26[1])*(Patrones[i,:]-Pesos1[1,:])
+        # Pesos1[2,:] = Pesos1[2,:] + alpha*(a26[2])*(Patrones[i,:]-Pesos1[2,:])
         
 #         # a1 = compet( Pesos1.dot(Patrones[i,:].T) + Bias.T )
 #         b1 = np.argmax(a1)
