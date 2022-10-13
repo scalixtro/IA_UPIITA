@@ -1,6 +1,8 @@
 from skimage import io
 import numpy as np
 
+# Esto va fuera del primer for que teniamos
+
 imagen2 = io.imread('imagen.jpg') / 255.0
 imagen3 = np.zeros(imagen2.shape)
 
